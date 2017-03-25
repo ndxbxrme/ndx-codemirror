@@ -1,0 +1,20 @@
+{
+  "name": "ndx-codemirror",
+  "description": "codemirror directive for ndx-framework",
+  "main": "build/index.js",
+  "authors": [
+    "ndxbxrme"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/ndxbxrme/ndx-codemirror",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "CodeMirror": "^5.25.0"
+  }
+}
