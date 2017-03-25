@@ -32,7 +32,7 @@ module.directive 'codeMirror', ->
       if changed
         changed = false
       else
-        editor.setValue val
+        editor.setValue(val or '')
       val
     scope.$on '$destroy', ->
       editor.toTextArea()

@@ -49,7 +49,7 @@
           if (changed) {
             changed = false;
           } else {
-            editor.setValue(val);
+            editor.setValue(val || '');
           }
           return val;
         });
