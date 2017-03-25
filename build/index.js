@@ -28,7 +28,6 @@
           scope.options.tabSize = 2;
         }
         editor = CodeMirror.fromTextArea(elem[0], scope.options);
-        editor.setValue(scope.ngModel);
         changed = false;
         editor.on('change', function(e, f) {
           if (f.origin !== 'setValue') {

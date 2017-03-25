@@ -18,7 +18,7 @@ module.directive 'codeMirror', ->
       scope.options.tabSize = 2
     editor = CodeMirror.fromTextArea elem[0],
       scope.options
-    editor.setValue scope.ngModel
+    #editor.setValue(scope.ngModel or '')
     changed = false
     editor.on 'change', (e,f) ->
       if f.origin isnt 'setValue'
