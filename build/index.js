@@ -24,7 +24,7 @@
       },
       link: function(scope, elem, attrs, ngModel) {
         var callback, changed, editor, i, len, ref;
-        if (!angular.isDefined(scope.options.tabSize)) {
+        if (scope.options && !angular.isDefined(scope.options.tabSize)) {
           scope.options.tabSize = 2;
         }
         editor = CodeMirror.fromTextArea(elem[0], scope.options);

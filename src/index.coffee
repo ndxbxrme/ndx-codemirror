@@ -14,7 +14,7 @@ module.directive 'codeMirror', ->
     options: '='
     callbacks: '='
   link: (scope, elem, attrs, ngModel) ->
-    if not angular.isDefined scope.options.tabSize
+    if scope.options and not angular.isDefined scope.options.tabSize
       scope.options.tabSize = 2
     editor = CodeMirror.fromTextArea elem[0],
       scope.options
