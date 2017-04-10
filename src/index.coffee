@@ -3,7 +3,7 @@ module = null
 try
   module = angular.module 'ndx'
 catch e
-  module = angular.module 'ndx-codemirror', []
+  module = angular.module 'ndx', []
 module.directive 'codeMirror', ->
   restrict: 'AE'
   require: 'ngModel'
@@ -14,6 +14,7 @@ module.directive 'codeMirror', ->
     options: '='
     callbacks: '='
   link: (scope, elem, attrs, ngModel) ->
+    console.log 'codemirror'
     if scope.options and not angular.isDefined scope.options.tabSize
       scope.options.tabSize = 2
     editor = CodeMirror.fromTextArea elem[0],

@@ -8,7 +8,7 @@
     module = angular.module('ndx');
   } catch (error) {
     e = error;
-    module = angular.module('ndx-codemirror', []);
+    module = angular.module('ndx', []);
   }
 
   module.directive('codeMirror', function() {
@@ -24,6 +24,7 @@
       },
       link: function(scope, elem, attrs, ngModel) {
         var callback, changed, editor, i, len, ref;
+        console.log('codemirror');
         if (scope.options && !angular.isDefined(scope.options.tabSize)) {
           scope.options.tabSize = 2;
         }
