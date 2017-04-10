@@ -24,7 +24,6 @@
       },
       link: function(scope, elem, attrs, ngModel) {
         var callback, changed, editor, i, len, ref;
-        console.log('codemirror');
         if (scope.options && !angular.isDefined(scope.options.tabSize)) {
           scope.options.tabSize = 2;
         }
