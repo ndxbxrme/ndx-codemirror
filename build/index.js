@@ -20,14 +20,41 @@
       scope: {
         ngModel: '=',
         options: '=',
-        callbacks: '='
+        callbacks: '=',
+        editor: '='
       },
       link: function(scope, elem, attrs, ngModel) {
-        var callback, changed, editor, i, len, ref;
+        var callback, changed, deref, editor, i, len, ref;
         if (scope.options && !angular.isDefined(scope.options.tabSize)) {
           scope.options.tabSize = 2;
         }
         editor = CodeMirror.fromTextArea(elem[0], scope.options);
+        console.log(typeof scope.options);
+        if (typeof scope.editor !== 'undefined') {
+          scope.editor = {
+            editor: editor,
+            getDoc: function() {
+              return editor.getDoc();
+            },
+            swapDoc: function(doc) {
+              return editor.swapDoc(doc);
+            }
+          };
+        }
+        deref = scope.$watch('options', function(n, o) {
+          var key, results;
+          if (n && o) {
+            results = [];
+            for (key in n) {
+              if (n[key] !== o[key]) {
+                results.push(editor.setOption(key, n[key]));
+              } else {
+                results.push(void 0);
+              }
+            }
+            return results;
+          }
+        }, true);
         changed = false;
         editor.on('change', function(e, f) {
           if (f.origin !== 'setValue') {
@@ -53,6 +80,7 @@
           return val;
         });
         return scope.$on('$destroy', function() {
+          deref();
           editor.toTextArea();
           return editor = null;
         });

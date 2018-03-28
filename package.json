@@ -1,6 +1,6 @@
 {
   "name": "ndx-codemirror",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "codemirror directive for ndx-framework",
   "main": "build/index.js",
   "scripts": {
